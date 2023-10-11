@@ -1,0 +1,53 @@
+{
+  // To print the fully resolved config run: renovate --platform=local --print-config
+  // Configuration validation: renovate-config-validator --strict
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended"
+  ],
+  "npm": {
+    "enabled": false
+  },
+  "docker-compose": {
+    "enabled": false
+  },
+  "hostRules": [
+    {
+      "timeout": 5000
+    }
+  ],
+  "enabledManagers": [
+    "gradle",
+    "gradle-wrapper"
+  ],
+  "ignorePaths": [
+    "**/docker-compose.yml",
+    "**/docker-compose.yaml",
+    "**/package.json",
+    "**/package-lock.json",
+    "**/yarn.json"
+  ],
+  "packageRules": [
+    {
+      "groupName": "All patch level dependencies",
+      "groupSlug": "all-patch",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "patch"
+      ]
+    },
+    {
+      "groupName": "All minor dependencies",
+      "matchPackagePatterns": [
+        "*"
+      ],
+      "matchUpdateTypes": [
+        "minor"
+      ]
+    }
+  ],
+  "prHourlyLimit": 3
+  // Rate limit PRs to maximum x created per hour. 0 means no limit.
+}

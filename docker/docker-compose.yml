@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+
+  kafka:
+    image: moeenz/docker-kafka-kraft:bf2d42fb6e0e
+    ports:
+      - "9092:9092"
+    environment:
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://kafka:9092
+      - KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR=1
+      - KRAFT_CONTAINER_HOST_NAME=kafka
