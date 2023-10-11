@@ -11,6 +11,9 @@
   "docker-compose": {
     "enabled": false
   },
+  "baseBranches": [
+    "main"
+  ],
   "hostRules": [
     {
       "timeout": 5000
